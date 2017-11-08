@@ -34,7 +34,15 @@
                          {
         filter: function(feature){return feature.geometry != null, feature.properties.schoolyear == "2016";}
         
-                         }
+                         },
+  // add an address label-style popup for each feature
+  onEachFeature: function(feature, layer) {
+    var text = '<b>' + feature.properties.schoolname + '</b><br/>';
+    text += feature.properties.street1 + '<br/>';
+    text += feature.properties.city + ', ' + feature.properties.state + '<br/>';
+    text += feature.properties.educationlevel + ' School';
+    layer.bindPopup(text);
+  }
                         
                         ).addTo(map);
       
