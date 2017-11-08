@@ -28,7 +28,15 @@
       new L.GeoJSON.AJAX('https://whosonfirst.mapzen.com/data/102/083/871/102083871.geojson').addTo(map);
       new L.GeoJSON.AJAX('https://whosonfirst.mapzen.com/data/102/083/887/102083887.geojson').addTo(map);
       
-      new L.GeoJSON.AJAX('https://data.delaware.gov/resource/f6a3-crpj.geojson').addTo(map);
+      
+      //
+      new L.GeoJSON.AJAX('https://data.delaware.gov/resource/f6a3-crpj.geojson',
+                         {
+        filter: function(feature){return feature.geometry != null, feature.properties.schoolyear == "2016";}
+        
+                         }
+                        
+                        ).addTo(map);
       
     </script>
   </body>
