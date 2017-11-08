@@ -32,9 +32,9 @@
       //
       new L.GeoJSON.AJAX('https://data.delaware.gov/resource/f6a3-crpj.geojson',
                          {
-        filter: function(feature){return feature.geometry != null, feature.properties.schoolyear == "2016";}
+        filter: function(feature){return feature.geometry != null, feature.properties.schoolyear == "2016";},
         
-                         },
+                         
   // add an address label-style popup for each feature
   onEachFeature: function(feature, layer) {
     var text = '<b>' + feature.properties.schoolname + '</b><br/>';
@@ -44,7 +44,7 @@
     layer.bindPopup(text);
   }
                         
-                        ).addTo(map);
+      }).addTo(map);
       
     </script>
   </body>
